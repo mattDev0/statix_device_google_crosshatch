@@ -48,6 +48,27 @@ else
   fi
 fi
 
+<<<<<<< HEAD
+=======
+function blob_fixup() {
+    case "${1}" in
+    # Fix typo in qcrilmsgtunnel whitelist
+    product/etc/sysconfig/nexus.xml)
+        sed -i 's/qulacomm/qualcomm/' "${2}"
+        ;;
+    vendor/rfs/msm/mpss/readonly/vendor/mbn/mcfg_sw/mbn_sw.txt)
+        sed -i '7 a\mcfg_sw/generic/China/CMCC/Commercial/Volte_OpenMkt/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/AGNSS_LocTech/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/Conf_VoLTE/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/EPS_Only/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/LPP_LocTech/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/Nsiot_VoLTE/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/RRLP_LocTech/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/TGL_Comb_Attach/mcfg_sw.mbn\nmcfg_sw/generic/China/CMCC/Lab/W_IRAT_Comb_Attach/mcfg_sw.mbn\nmcfg_sw/generic/China/CT/Commercial/hVoLTE_OpenMkt/mcfg_sw.mbn\nmcfg_sw/generic/China/CT/Commercial/OpenMkt/mcfg_sw.mbn\nmcfg_sw/generic/China/CT/Commercial/VoLTE_OpenMkt/mcfg_sw.mbn\nmcfg_sw/generic/China/CU/Commercial/OpenMkt/mcfg_sw.mbn\nmcfg_sw/generic/China/CU/Commercial/VoLTE/mcfg_sw.mbn' "${2}"
+        ;;
+    vendor/bin/hw/vendor.qti.media.c2@1.0-service)
+        "${PATCHELF}" --replace-needed "libavservices_minijail_vendor.so" "libavservices_minijail.so" "${2}"
+        ;;
+    product/lib64/libsecureuisvc_jni.so)
+        "${PATCHELF}" --add-needed "lib-secureuishim.so" "${2}"
+        ;;
+    esac
+}
+
+>>>>>>> 4e3e30c4 (b1c1: Add shim for missing symbol in libsecureuisvc_jni.so)
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 

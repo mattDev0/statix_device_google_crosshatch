@@ -964,6 +964,22 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libsdsprpc
 
+<<<<<<< HEAD
+=======
+# Shims
+PRODUCT_PACKAGES += \
+    lib-secureuishim
+
+# Camera Extensions
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
+    ro.vendor.camera.extensions.service=com.google.android.apps.camera.services.extensions.service.PixelExtensions
+
+# Context Hub Runtime Environment
+PRODUCT_PACKAGES += \
+    chre
+
+>>>>>>> 4e3e30c4 (b1c1: Add shim for missing symbol in libsecureuisvc_jni.so)
 # To be removed?
 PRODUCT_PACKAGES += \
     libhwbinder.vendor \
