@@ -45,11 +45,19 @@ PRODUCT_COPY_FILES += \
 
 # Google Photos
 PRODUCT_COPY_FILES += \
+<<<<<<< HEAD
     $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
     
 # Adaptive charging
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/adaptivecharging.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/adaptivecharging.xml
+=======
+    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
+    
+# Adaptive charging
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/adaptivecharging.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/adaptivecharging.xml
+>>>>>>> 8582f2cd647a50fd5c70d43d844dead118eb5800
 
 # Enable on-access verification of priv apps. This requires fs-verity support in kernel.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -887,7 +895,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.svn=59
+    ro.vendor.build.svn=62
 
 # pixel atrace HAL
 PRODUCT_PACKAGES += \
