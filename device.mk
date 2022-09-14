@@ -42,22 +42,10 @@ PRODUCT_COPY_FILES += \
     device/google/crosshatch/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
-
-# Google Photos
-PRODUCT_COPY_FILES += \
-<<<<<<< HEAD
-    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
-    
-# Adaptive charging
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/adaptivecharging.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/adaptivecharging.xml
-=======
-    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
     
 # Adaptive charging
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/adaptivecharging.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/adaptivecharging.xml
->>>>>>> 8582f2cd647a50fd5c70d43d844dead118eb5800
 
 # Enable on-access verification of priv apps. This requires fs-verity support in kernel.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -871,7 +859,7 @@ endif
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle
-
+   
 # Enable stats logging in LMKD
 TARGET_LMKD_STATS_LOG := true
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -979,22 +967,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libsdsprpc
 
-<<<<<<< HEAD
-=======
-# Shims
-PRODUCT_PACKAGES += \
-    lib-secureuishim
-
-# Camera Extensions
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
-    ro.vendor.camera.extensions.service=com.google.android.apps.camera.services.extensions.service.PixelExtensions
-
-# Context Hub Runtime Environment
-PRODUCT_PACKAGES += \
-    chre
-
->>>>>>> 4e3e30c4 (b1c1: Add shim for missing symbol in libsecureuisvc_jni.so)
 # To be removed?
 PRODUCT_PACKAGES += \
     libhwbinder.vendor \
@@ -1040,3 +1012,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Set system properties identifying the chipset
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Qualcomm
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SDM845
+
+# Shims
+PRODUCT_PACKAGES += \
+    lib-secureuishim
+

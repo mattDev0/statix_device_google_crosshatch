@@ -1,5 +1,5 @@
 #
-# Copyright 2016 The Android Open Source Project
+# Copyright 2020 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,11 @@
 #
 # All components inherited here go to system image
 #
+ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+else
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+endif
 $(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
 
 #
@@ -40,17 +44,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
 # Inherit AOSP stuff
 $(call inherit-product, vendor/hentai/config/common_telephony.mk)
-$(call inherit-product, device/google/crosshatch/device-blueline.mk)
 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
 # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
-PRODUCT_MANUFACTURER := Google
-PRODUCT_BRAND := Google
-PRODUCT_NAME := hentai_blueline
-PRODUCT_DEVICE := blueline
-PRODUCT_MODEL := Pixel 3
+# Enforce dark boot animation
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.boot.theme=1
 
-$(call inherit-product, vendor/google/blueline/blueline-vendor.mk)
+# Build Tensor/Pixel 2021 features
+PRODUCT_PACKAGES += \
+    PixelWallpapers2021 \
+    pixel_experience_2021_midyear \
+    pixel_experience_2021 
