@@ -1,3 +1,10 @@
+# Pixel identification
+ro.build.fingerprint=google/raven/raven:13/TP1A.220905.004/8927612:user/release-keys
+ro.product.manufacturer=Google
+ro.product.brand=google
+ro.product.name=raven
+ro.product.model=Pixel 6 Pro
+
 #system.props for volte/vowifi/video calling
 persist.dbg.ims_volte_enable=1
 persist.dbg.volte_avail_ovr=1
