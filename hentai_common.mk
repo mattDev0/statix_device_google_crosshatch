@@ -42,9 +42,6 @@ $(call inherit-product, vendor/hentai/build/product/hentai_product.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
-# Inherit AOSP stuff
-$(call inherit-product, vendor/hentai/config/common_telephony.mk)
-
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
 # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
