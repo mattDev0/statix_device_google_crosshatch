@@ -15,6 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/statix_blueline.mk \
+    $(LOCAL_DIR)/statix_crosshatch.mk \
     $(LOCAL_DIR)/aosp_crosshatch.mk \
     $(LOCAL_DIR)/aosp_blueline.mk \
     $(LOCAL_DIR)/aosp_crosshatch_hwasan.mk \
@@ -22,6 +24,10 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/vf/aosp_crosshatch_vf.mk \
 
 COMMON_LUNCH_CHOICES := \
+    statix_blueline-userdebug \
+    statix_crosshatch-userdebug \
+    statix_blueline-user \
+    statix_crosshatch-user \
     aosp_crosshatch-userdebug \
     aosp_blueline-userdebug \
     aosp_crosshatch_vf-userdebug \
