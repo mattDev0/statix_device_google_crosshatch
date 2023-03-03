@@ -62,5 +62,4 @@ PRODUCT_PACKAGES += \
     pixel_experience_2021_midyear \
     pixel_experience_2021 \
     pixel_experience_2022_midyear \
-    pixel_experience_2022 \
-    quick_tap
+    pixel_experience_2022
