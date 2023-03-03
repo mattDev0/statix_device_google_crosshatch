@@ -51,6 +51,11 @@ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.boot.theme=1
 
+# Force voLTE/voWIFI
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
+
 # Build Tensor/Pixel 2021 features
 PRODUCT_PACKAGES += \
     PixelWallpapers2021 \
