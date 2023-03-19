@@ -388,4 +388,7 @@
 
     <!-- Flag indicating whether we should enable the adaptive sleep.-->
     <bool name="config_adaptive_sleep_available">true</bool>
+
+     <!-- Auto-brightness sensor type string -->
+    <string name="config_displayLightSensorType">"android.sensor.light"</string>
 </resources>
