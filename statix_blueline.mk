@@ -17,11 +17,15 @@
 
 $(call inherit-product, device/google/crosshatch/device-blueline.mk)
 $(call inherit-product, vendor/google/blueline/blueline-vendor.mk)
-$(call inherit-product, device/google/crosshatch/hentai_common.mk)
+$(call inherit-product, device/google/crosshatch/statix_common.mk)
 
 PRODUCT_MANUFACTURER := Google
 PRODUCT_BRAND := google
-PRODUCT_NAME := blueline
+PRODUCT_NAME := statix_blueline
 PRODUCT_DEVICE := blueline
 PRODUCT_MODEL := Pixel 3
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_WIDTH := 1080
 
