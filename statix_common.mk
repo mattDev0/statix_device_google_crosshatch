@@ -30,10 +30,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 
-#
-# All components inherited here go to product image
-#
-$(call inherit-product, vendor/hentai/build/product/hentai_product.mk)
+# Inherit some common StatiX stuff.
+$(call inherit-product, vendor/statix/config/common.mk)
+$(call inherit-product, vendor/statix/config/gsm.mk)
 
 #
 # All components inherited here go to vendor image
@@ -54,13 +53,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Camera
 PRODUCT_PACKAGES += \
     GcamPrebuilt
-
-# Build Tensor/Pixel 2021 features
-PRODUCT_PACKAGES += \
-    PixelWallpapers2021 \
-    pixel_experience_2021_midyear \
-    pixel_experience_2021 \
-    pixel_experience_2022_midyear \
-    pixel_experience_2022
 
 $(call inherit-product, device/google/crosshatch/BoardConfig-vendor.mk)

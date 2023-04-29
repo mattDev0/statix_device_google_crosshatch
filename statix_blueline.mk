@@ -15,14 +15,17 @@
 #
 
 
-$(call inherit-product, device/google/crosshatch/device-crosshatch.mk)
-$(call inherit-product, vendor/google/crosshatch/crosshatch-vendor.mk)
-$(call inherit-product, device/google/crosshatch/hentai_common.mk)
+$(call inherit-product, device/google/crosshatch/device-blueline.mk)
+$(call inherit-product, vendor/google/blueline/blueline-vendor.mk)
+$(call inherit-product, device/google/crosshatch/statix_common.mk)
 
 PRODUCT_MANUFACTURER := Google
 PRODUCT_BRAND := google
-PRODUCT_NAME := crosshatch
-PRODUCT_DEVICE := crosshatch
-PRODUCT_MODEL := Pixel 3 XL
+PRODUCT_NAME := statix_blueline
+PRODUCT_DEVICE := blueline
+PRODUCT_MODEL := Pixel 3
 
-TARGET_BOOT_ANIMATION_RES := 1440
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_WIDTH := 1080
+
