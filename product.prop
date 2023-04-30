@@ -1,9 +1,10 @@
-# Device mask
-ro.build.fingerprint=google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys
+# Pixel identification
+ro.build.fingerprint=google/redfin/redfin:13/TQ2A.230405.003/9719927:user/release-keys
 ro.product.manufacturer=Google
 ro.product.brand=google
-ro.product.name=cheetah
-ro.product.model=Pixel 7 Pro
+ro.product.name=redfin
+ro.product.model=Pixel 5
+ro.product.device=redfin
 
 # Missing props from build.prop diff
 persist.vendor.radio.mt_sms_ack=30
