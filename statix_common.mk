@@ -63,3 +63,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Camera
 PRODUCT_PACKAGES += \
     GcamPrebuilt
+
+# Parts
+$(call inherit-product-if-exists, vendor/google/pixelparts/pixelparts.mk)
