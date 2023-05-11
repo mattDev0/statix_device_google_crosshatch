@@ -64,5 +64,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     GcamPrebuilt
 
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
+
 # Parts
 $(call inherit-product-if-exists, vendor/google/pixelparts/pixelparts.mk)
