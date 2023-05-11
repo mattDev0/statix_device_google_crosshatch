@@ -1,10 +1,3 @@
-# Device mask
-ro.build.fingerprint=google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys
-ro.product.manufacturer=Google
-ro.product.brand=google
-ro.product.name=cheetah
-ro.product.model=Pixel 7 Pro
-
 # Missing props from build.prop diff
 persist.vendor.radio.mt_sms_ack=30
 ro.storage_manager.enabled=true
