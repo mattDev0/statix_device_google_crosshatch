@@ -1,11 +1,3 @@
-# Pixel identification
-ro.build.fingerprint=google/redfin/redfin:13/TQ2A.230505.002/9891397:user/release-keys
-ro.product.manufacturer=Google
-ro.product.brand=google
-ro.product.name=redfin
-ro.product.model=Pixel 5
-ro.product.device=redfin
-
 # Missing props from build.prop diff
 persist.vendor.radio.mt_sms_ack=30
 ro.storage_manager.enabled=true
