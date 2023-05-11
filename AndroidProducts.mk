@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/crosshatch.mk \
-    $(LOCAL_DIR)/blueline.mk \
+    $(LOCAL_DIR)/statix_crosshatch.mk \
+    $(LOCAL_DIR)/statix_blueline.mk \
 
 COMMON_LUNCH_CHOICES := \
-    crosshatch-user \
-    blueline-user
+    statix_crosshatch-user \
+    statix_blueline-user
