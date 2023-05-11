@@ -59,4 +59,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     GcamPrebuilt
 
+# Parts
+$(call inherit-product-if-exists, vendor/google/pixelparts/pixelparts.mk)
+
 $(call inherit-product, device/google/crosshatch/BoardConfig-vendor.mk)
