@@ -64,6 +64,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     GcamPrebuilt
 
+MODULE_BUILD_FROM_SOURCE := true
+
 # Pixel Launcher
 INCLUDE_PIXEL_LAUNCHER := true
 
