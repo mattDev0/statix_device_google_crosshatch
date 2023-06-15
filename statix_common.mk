@@ -67,4 +67,43 @@ INCLUDE_PIXEL_LAUNCHER := true
 # Parts
 $(call inherit-product-if-exists, vendor/google/pixelparts/pixelparts.mk)
 
+# Overlay packages for APK-type modules
+PRODUCT_PACKAGES += \
+    GoogleDocumentsUIOverlay \
+    ModuleMetadataGoogleOverlay \
+    GoogleExtServicesConfigOverlay \
+    CaptivePortalLoginFrameworkOverlay
+
+# Mainline modules - APK type
+PRODUCT_PACKAGES += \
+    com.google.android.modulemetadata \
+    DocumentsUIGoogle \
+    CaptivePortalLoginGoogle
+
+PRODUCT_PACKAGES += \
+    com.google.android.extservices
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.extservices.apex
+
+
+PRODUCT_PACKAGES += \
+    com.google.android.cellbroadcast
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.cellbroadcast.apex
+
+
+PRODUCT_PACKAGES += \
+    com.google.android.ondevicepersonalization
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.ondevicepersonalization.apex
+
+# sysconfig files
+PRODUCT_COPY_FILES += \
+    vendor/partner_modules/build/google-staged-installer-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google-staged-installer-whitelist.xml \
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/app/CaptivePortalLoginGoogle/CaptivePortalLoginGoogle.apk \
+    system/etc/permissions/GoogleDocumentsUI_permissions.xml \
+
 $(call inherit-product, device/google/crosshatch/BoardConfig-vendor.mk)
