@@ -5,7 +5,7 @@
 #
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-statix
 
 # AiAi Config
 PRODUCT_COPY_FILES += \
@@ -16,24 +16,64 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
     ro.vendor.camera.extensions.service=com.google.android.apps.camera.services.extensions.service.PixelExtensions
 
-# Elmyra
-PRODUCT_PACKAGES += \
-    ElmyraService
-
 # EUICC
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml
 
-# Google Assistant
-PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
 
-# LiveDisplay
+STATIX_BUILD_TYPE=TIRAMISU
+
+# Camera
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    GcamPrebuilt
 
 # Parts
+$(call inherit-product-if-exists, vendor/google/pixelparts/pixelparts.mk)
+
+
+MAINLINE_COMPRESS_APEX_ALL := false
+#MODULE_BUILD_FROM_SOURCE := true
+
+# Overlay packages for APK-type modules
 PRODUCT_PACKAGES += \
-    GoogleParts
+    GoogleDocumentsUIOverlay \
+    ModuleMetadataGoogleOverlay \
+    GoogleExtServicesConfigOverlay \
+    CaptivePortalLoginFrameworkOverlay
+
+# Mainline modules - APK type
+PRODUCT_PACKAGES += \
+    com.google.android.modulemetadata \
+    DocumentsUIGoogle \
+    CaptivePortalLoginGoogle
+
+PRODUCT_PACKAGES += \
+    com.google.android.extservices
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.extservices.apex
+
+
+PRODUCT_PACKAGES += \
+    com.google.android.cellbroadcast
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.cellbroadcast.apex
+
+
+PRODUCT_PACKAGES += \
+    com.google.android.ondevicepersonalization
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.google.android.ondevicepersonalization.apex
+
+# sysconfig files
+PRODUCT_COPY_FILES += \
+    vendor/partner_modules/build/google-staged-installer-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google-staged-installer-whitelist.xml \
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/app/CaptivePortalLoginGoogle/CaptivePortalLoginGoogle.apk \
+    system/etc/permissions/GoogleDocumentsUI_permissions.xml \
 
 # RCS
 PRODUCT_PACKAGES += \
